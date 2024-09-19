@@ -7,7 +7,7 @@
     // topics subscribed
     "Subscriptions": [
         {
-            "Topic": "ACME/Porto/#",
+            "Topic": "ACME/Porto/3/",
             "QoS":  0
         },
         {
@@ -37,14 +37,15 @@
                 "Description": "Sum of all parts produced in Porto",
                 "Strategy": "sum",
                 "WindowSize": 1,
-                "Topics": "ACME/Porto/#"
+                "Topics": "ACME/Porto/3/"
             }
         ]
 
     },
 
     "Output": {
-        "Topic" : "ACME/Aggregated"
+        "Topic": "ACME/Aggregated"
+        
     }
 
 }

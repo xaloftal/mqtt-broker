@@ -56,7 +56,7 @@ namespace mqtt_broker.Services
                 };
                 Console.WriteLine("Client created");
 
-                _client.ApplicationMessageReceivedAsync += HandleIncomingMessage;
+                _client.ApplicationMessageReceivedAsync += async e => await HandleIncomingMessage(e);
 
                 await _client.ConnectAsync(mqttClientOptions);
             }
@@ -71,7 +71,8 @@ namespace mqtt_broker.Services
         {
             string topic = e.ApplicationMessage.Topic;
             string payloadSegment = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
-            Console.WriteLine("Try into");
+            Console.WriteLine("Received message from topic: " + topic);
+            Console.WriteLine("Payload: " + payloadSegment);
 
             try
             {
