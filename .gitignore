@@ -4,3 +4,5 @@
 
 /.vs/mqtt-broker/FileContentIndex
 /.vs/mqtt-broker/v17
+/obj
+/.vs
