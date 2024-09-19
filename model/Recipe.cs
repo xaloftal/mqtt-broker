@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace mqtt_broker.model
 {
     /// <summary>
-    /// Modal for the recipies, to use for processing data
+    /// Class for the recipies, to use for processing data
     /// </summary>
     public class Recipe
     {
@@ -20,12 +20,7 @@ namespace mqtt_broker.model
         /// Recipe description, explains what it does
         /// </summary>
         public string Description { get; set; }
-     
-        /// <summary>
-        /// the type of recipe
-        /// </summary>
-        public string Type { get; set; }
-      
+          
         /// <summary>
         /// The strategy (ex: sum, average...)
         /// </summary>
@@ -39,7 +34,7 @@ namespace mqtt_broker.model
         /// <summary>
         /// What topics this recipe is applied to
         /// </summary>
-        public List<string> Topic { get; set; }
+        public List<string> Topics { get; set; }
 
     }
 }

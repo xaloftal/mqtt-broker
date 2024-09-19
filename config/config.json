@@ -1,16 +1,50 @@
 {
     //mqtt broker connection information
     "mqtt": {
-        "brokerAddress": "iot.coreflux.cloud",
-        "port": 1883
+        "Address": "iot.coreflux.cloud",
+        "Port": 1883
     },
     // topics subscribed
-    "subscriptions": [
+    "Subscriptions": [
         {
-            /*first subscription*/
+            "Topic": "ACME/Porto/#",
+            "QoS":  0
         },
         {
-            /*second subscription*/
+            "Topic": "ACME/London/#",
+            "QoS":  0
         }
-    ]
+    ],
+
+    "Recipes": {
+        "CurrentRecipe": "sum",
+
+        "OtherRecipes": [
+            {
+                "Name": "average",
+                "Description": "Calculates the average of temperatures of machines",
+                "Strategy": "average",
+                "WindowSize": 4,
+                "Topics": [
+                    "ACME/Sydney/3",
+                    "ACME/London/#"
+                ]
+
+            },
+
+            {
+                "Name": "sum",
+                "Description": "Sum of all parts produced in Porto",
+                "Strategy": "sum",
+                "WindowSize": 1,
+                "Topics": "ACME/Porto/#"
+            }
+        ]
+
+    },
+
+    "Output": {
+        "Topic" : "ACME/Aggregated"
+    }
+
 }
